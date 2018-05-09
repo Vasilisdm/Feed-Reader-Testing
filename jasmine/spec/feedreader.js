@@ -14,6 +14,7 @@ $(function() {
     * feeds definitions, the allFeeds variable in our application.
     */
     describe('RSS Feeds', function() {
+        let empty = ''
         /* This is our first test - it tests to make sure that the
          * allFeeds variable has been defined and that it is not
          * empty. Experiment with this before you get started on
@@ -31,9 +32,9 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-        it('every feed has a non empty url', function() {
+        it('Every feed has a non empty url value', function() {
             allFeeds.forEach(function(feed) {
-                expect(feed.url).not.toBe(null);
+                expect(feed.url).not.toEqual(empty);
             });
         });
 
@@ -41,6 +42,11 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+        it('Every feed has a non empty name value', function() {
+            allFeeds.forEach(function(feed){
+                expect(feed.name).not.toEqual(empty);                
+            });
+        });
     });
 
 
