@@ -1,52 +1,32 @@
-/* feedreader.js
- *
- * This is the spec file that Jasmine will read and contains
- * all of the tests that will be run against your application.
- */
 
-/* We're placing all of our tests within the $() function,
- * since some of these tests may require DOM elements. We want
- * to ensure they don't run until the DOM is ready.
- */
 $(function() {
-    /* This is our first test suite - a test suite just contains
-    * a related set of tests. This suite is all about the RSS
-    * feeds definitions, the allFeeds variable in our application.
-    */
+   
     describe('RSS Feeds', function() {
+
+        // initialiazing a variable to null in order to,
+        // use it further down for comparisons
         let empty = ''
-        /* This is our first test - it tests to make sure that the
-         * allFeeds variable has been defined and that it is not
-         * empty. Experiment with this before you get started on
-         * the rest of this project. What happens when you change
-         * allFeeds in app.js to be an empty array and refresh the
-         * page?
-         */
+        
+        // Checking if allFeeds is defined and not null
         it('are defined', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
         });
 
-
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a URL defined
-         * and that the URL is not empty.
-         */
+        // Checking if each and every feed has a non-empty URL
         it('Every feed has a non empty url value', function() {
             allFeeds.forEach(function(feed) {
                 expect(feed.url).not.toEqual(empty);
             });
         });
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a name defined
-         * and that the name is not empty.
-         */
+        // Checking if each of the feeds has a non-empty name
         it('Every feed has a non empty name value', function() {
             allFeeds.forEach(function(feed){
                 expect(feed.name).not.toEqual(empty);                
             });
         });
+
     });
 
 
