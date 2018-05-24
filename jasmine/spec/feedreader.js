@@ -50,33 +50,33 @@ $(function() {
     });
 
 
-    /* TODO: Write a new test suite named "The menu" */
+    // Menu test suite
     describe('The menu', function() {
+
         let body = document.body;
         let menuIcon = document.querySelector(".menu-icon-link");
         let hiddenMenu = body.classList.contains("menu-hidden");
-        /* TODO: Write a test that ensures the menu element is
-         * hidden by default. You'll have to analyze the HTML and
-         * the CSS to determine how we're performing the
-         * hiding/showing of the menu element.
-         */
+       
+        // if menu is hidden by default the body classList,
+        // should contain the menu-hidden class
         it('Menu element hidden by default', function() {
             expect(hiddenMenu).toBe(true);
         });
 
-         /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
-          */
+
+        // checking if the body does not contains the menu-hidden class,
+        //  when the menu icon is clicked
         it('Does the menu display when clicked', function(){
             menuIcon.click();
             expect(body.classList.contains("menu-hidden")).not.toBe(true);
         });
+        // When the menu icon is clicked again, body classList should
+        // should contain the menu-hidden class
         it('Does it hide when clicked again', function(){
             menuIcon.click();
             expect(body.classList.contains("menu-hidden")).toBe(true);
         });
+        
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
