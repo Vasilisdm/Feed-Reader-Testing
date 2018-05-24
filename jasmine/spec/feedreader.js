@@ -70,9 +70,12 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
         it('Does the menu display when clicked', function(){
-            expect(menuIcon.addEventListener('click',function(){
-                return hiddenMenu;
-            })).not.toBe(true);
+            menuIcon.click();
+            expect(body.classList.contains("menu-hidden")).not.toBe(true);
+        });
+        it('Does it hide when clicked again', function(){
+            menuIcon.click();
+            expect(body.classList.contains("menu-hidden")).toBe(true);
         });
     });
 
