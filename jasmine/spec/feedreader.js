@@ -69,7 +69,7 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-        it('When menu icon is clicked, menu gets displayed', function(){
+        it('Does the menu display when clicked', function(){
             expect(menuIcon.addEventListener('click',function(){
                 return hiddenMenu;
             })).not.toBe(true);
