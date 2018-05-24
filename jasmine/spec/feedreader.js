@@ -59,18 +59,14 @@ $(function() {
         
     });
 
-    
+    // Initial Entries test suite
     describe('Initial Entries', function(){
 
         // Getting the feed element from the DOM
         const feedElement = document.querySelector('.feed');
 
-        /* TODO: Write a test that ensures when the loadFeed
-         * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
-         */
+        // Passing done as an argument before each function will make Jasmine
+        // to pass to be invoked when the asychronous work has been completed
         beforeEach(function(done) {
             loadFeed(0, done);
         });
