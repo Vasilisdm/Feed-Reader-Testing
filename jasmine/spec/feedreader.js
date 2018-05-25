@@ -78,12 +78,12 @@ $(function() {
 
     /* "New Feed Selection" test suite */
     describe('New Feed Selection', function(){
+
+        // initializing oldEntry and newEntry variables for the expectation comparison
         let oldEntry;
         let newEntry;
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
-         */
+
+        // Checking if the h2 from the first entry is different from the second one
         beforeEach(function(done){
 
             loadFeed(0, function(){
@@ -97,6 +97,7 @@ $(function() {
             
         });
 
+        // Checking if the newEntry is different from the old/first one
         it('The content of the new feed is changed', function(){
             expect(newEntry).not.toEqual(oldEntry);
         })
