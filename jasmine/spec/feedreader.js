@@ -86,15 +86,26 @@ $(function() {
         // Checking if the h2 from the first entry is different from the second one
         beforeEach(function(done){
 
+            let loadedCount = 0;
+
+            // if function loaded has been called 2 times then I should call done()
+            function loaded() {
+                loadedCount++;
+                if (loadedCount==2) done();
+            }
+    
             loadFeed(0, function(){
                 oldEntry = document.querySelector('.entry').getElementsByTagName('h2')[0].innerHTML;
+                console.log('oldEntry', oldEntry);
+                loaded();
             });
-
+    
             loadFeed(1, function(){
                 newEntry = document.querySelector('.entry').getElementsByTagName('h2')[0].innerHTML;
-                done();
+                console.log('newEntry', newEntry);
+                loaded();
             });
-            
+    
         });
 
         // Checking if the newEntry is different from the old/first one
@@ -102,5 +113,5 @@ $(function() {
             expect(newEntry).not.toEqual(oldEntry);
         })
     });
-    
+
 }());
