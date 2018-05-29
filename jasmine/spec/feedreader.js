@@ -62,9 +62,6 @@ $(function() {
     // Initial Entries test suite
     describe('Initial Entries', function(){
 
-        // Getting the feed element from the DOM
-        const feedElement = document.querySelector('.feed');
-
         // Passing done as an argument before each function will make Jasmine
         // to pass to be invoked when the asychronous work has been completed
         beforeEach(function(done) {
@@ -72,7 +69,7 @@ $(function() {
         });
 
         it('loadFeed called and completed its work', function() {
-            expect(feedElement.childElementCount).toBeGreaterThan(0);
+            expect(document.querySelector('.feed .entry').childElementCount).toBeGreaterThan(0);
         });
     });
 
@@ -96,13 +93,13 @@ $(function() {
     
             loadFeed(0, function(){
                 oldEntry = document.querySelector('.entry').getElementsByTagName('h2')[0].innerHTML;
-                console.log('oldEntry', oldEntry);
+                // console.log('oldEntry', oldEntry);
                 loaded();
             });
     
             loadFeed(1, function(){
                 newEntry = document.querySelector('.entry').getElementsByTagName('h2')[0].innerHTML;
-                console.log('newEntry', newEntry);
+                // console.log('newEntry', newEntry);
                 loaded();
             });
     
