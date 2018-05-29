@@ -54,7 +54,8 @@ $(function() {
         // should contain the menu-hidden class
         it('Does it hide when clicked again', function(){
             menuIcon.click();
-            expect(body.classList.contains("menu-hidden")).toBe(true);
+            // expect(body.classList.contains("menu-hidden")).toBe(true);
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
         
     });
