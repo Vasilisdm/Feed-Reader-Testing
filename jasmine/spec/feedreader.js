@@ -78,38 +78,56 @@ $(function() {
     describe('New Feed Selection', function(){
 
         // initializing oldEntry and newEntry variables for the expectation comparison
-        let oldEntry;
-        let newEntry;
+        // let oldEntry;
+        // let newEntry;
 
         // Checking if the h2 from the first entry is different from the second one
-        beforeEach(function(done){
+        // beforeEach(function(done){
 
-            let loadedCount = 0;
+        // let loadedCount = 0;
 
-            // if function loaded has been called 2 times then I should call done()
-            function loaded() {
-                loadedCount++;
-                if (loadedCount==2) done();
-            }
-    
-            loadFeed(0, function(){
-                oldEntry = document.querySelector('.entry').getElementsByTagName('h2')[0].innerHTML;
-                // console.log('oldEntry', oldEntry);
-                loaded();
-            });
-    
-            loadFeed(1, function(){
-                newEntry = document.querySelector('.entry').getElementsByTagName('h2')[0].innerHTML;
-                // console.log('newEntry', newEntry);
-                loaded();
-            });
-    
-        });
+        // if function loaded has been called 2 times then I should call done()
+        // function loaded() {
+        //     loadedCount++;
+        //     if (loadedCount==2) done();
+        // }
+
+        // loadFeed(0, function(){
+        //     oldEntry = document.querySelector('.entry').getElementsByTagName('h2')[0].innerHTML;
+            // console.log('oldEntry', oldEntry);
+        //     loaded();
+        // });
+
+        // loadFeed(1, function(){
+        //     newEntry = document.querySelector('.entry').getElementsByTagName('h2')[0].innerHTML;
+        //     // console.log('newEntry', newEntry);
+        //     loaded();
+        // });
 
         // Checking if the newEntry is different from the old/first one
-        it('The content of the new feed is changed', function(){
-            expect(newEntry).not.toEqual(oldEntry);
-        })
+        // it('The content of the new feed is changed', function(){
+        //     expect(newEntry).not.toEqual(oldEntry);
+        // })
+
+        let oldEntry;
+
+        beforeEach(function(done) {
+
+            loadFeed(0, function() {
+
+                // saving old feed in the oldEntry 
+                oldEntry = $('.feed').html();
+
+                // fetch newer feed
+                loadFeed(1, done);
+
+            });
+        });
+
+        it('The content of the new feed is changed', function() {
+            expect($('.feed').html()).not.toBe(oldEntry);
+        });
+
     });
 
 }());
